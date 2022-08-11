@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
  
 //   Route for add Product view 
  Route::get('addProductView',[ProductController::class,"addProductView"])->name("addProductView");
+
+//  Route for addProduct 
+
+Route::post("addproduct",[ProductController::class,"addproduct"])->name("addproduct");
