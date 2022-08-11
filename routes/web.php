@@ -24,3 +24,9 @@ use Illuminate\Support\Facades\Route;
 //  Route for addProduct 
 
 Route::post("addproduct",[ProductController::class,"addproduct"])->name("addproduct");
+
+ //Route For DataShow
+
+ Route::get("ProductView",[ProductController::class,"ProductView"])->name("ProductView");
+
+
