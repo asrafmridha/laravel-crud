@@ -18,13 +18,23 @@
 
 <form method="POST" >
 <div class="form-group">
-<label for="exampleInputEmail1">Your Name</label>
-<input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name"  name="name">
+<label for="exampleInputEmail1">Product Name</label>
+<input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname">
 
 </div>
 <div class="form-group">
-<label for="exampleInputPassword1">Your Email</label>
-<input type="email" class="form-control" id="exampleInputPassword1" placeholder="Enter Email" name="email">
+  <label for="exampleInputEmail1">Product Category</label>
+  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Category"  name="pcategory">
+  
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Product Description</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Description"  name="pdesc">
+    
+    </div>
+<div class="form-group">
+<label for="exampleInputPassword1">Price</label>
+<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" name="price">
 </div>
 
 <div class="form-group">
@@ -33,7 +43,7 @@
   <option value="#">---Select--</option>
 <option value="1">Active</option>
 <option value="2">Inactive</option>
-<option value="3">Suspend</option>
+
 </select>
 </div>
 
