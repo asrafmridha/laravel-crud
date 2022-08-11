@@ -2,9 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    //
+   function addProductView(){
+    return view("frontend.addProduct");
+   }
+
+   function addproduct(Request $request){
+    
+      $data=new Product;
+      $data->pname=$request->pname;
+      $data->pcategory=$request->pcategory;
+      $data->pdesc=$request->pdesc;
+      $data->price=$request->price;
+      $data->status=$request->status;
+      $data->save();
+
+
+   }
 }
