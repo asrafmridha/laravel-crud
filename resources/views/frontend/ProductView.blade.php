@@ -29,15 +29,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-           
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+
+            <?php  $slno=1; ?>
+
+
+          @foreach ($data as $item)
+            <tr>
+            <td>{{$slno}}</td>
+            <td>{{$item->pname}}</td>
+            <td>{{$item->pcategory}}</td>
+            <td>{{$item->pdesc}}</td>
+            <td>{{$item->price}}</td>
+            <td>{{$item->status}}</td>
           </tr>
+          <?php $slno++; ?>
+
+          @endforeach
+          
           
         </tbody>
       </table>

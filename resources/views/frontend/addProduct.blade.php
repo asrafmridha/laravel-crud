@@ -16,7 +16,10 @@
 <div class="col-md-6 offset-md-3">
 
 
-<form method="POST" >
+<form method="POST" action="{{Route("addproduct")}}" >
+  
+  @csrf
+
 <div class="form-group">
 <label for="exampleInputEmail1">Product Name</label>
 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname">
