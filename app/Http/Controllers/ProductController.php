@@ -11,6 +11,7 @@ class ProductController extends Controller
     return view("frontend.addProduct");
    }
 
+   //Function for add data into DB
    function addproduct(Request $request){
     
       $data=new Product;
@@ -20,7 +21,14 @@ class ProductController extends Controller
       $data->price=$request->price;
       $data->status=$request->status;
       $data->save();
+      return redirect()->route("ProductView");
 
 
+   }
+
+   function ProductView(){
+
+      $data=Product::all();
+      return view("frontend.ProductView",compact('data'));
    }
 }
