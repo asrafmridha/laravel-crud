@@ -16,7 +16,9 @@
         <div class="col-md-8 offset-md-2">
  
    <div class="container">
-    <table class="table table-striped table-dark">
+
+    <a href="{{Route("addProductView")}}" class="btn btn-primary"> Add Product</a>
+    <table class="table table-striped table-dark mt-3">
         <thead>
           <tr>
             <th scope="col">#Sl No</th>
