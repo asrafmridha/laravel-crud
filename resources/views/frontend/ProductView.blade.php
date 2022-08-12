@@ -7,6 +7,7 @@
     <title>Document</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -27,6 +28,8 @@
             <th scope="col">Product Description</th>
             <th scope="col">Price</th>
             <th scope="col">Status</th>
+            <th colspan="2" scope="col">Action</th>
+            
 
           </tr>
         </thead>
@@ -43,6 +46,8 @@
             <td>{{$item->pdesc}}</td>
             <td>{{$item->price}}</td>
             <td>{{$item->status}}</td>
+            <td><a class="text-white" href=""><i class="fa-solid fa-square-pen"></i></a> </td>
+            <td><a class="text-white" href=""><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php $slno++; ?>
 
