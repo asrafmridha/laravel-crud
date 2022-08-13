@@ -55,7 +55,7 @@
             <td>{{$item->price}}</td>
             <td>{{$item->status}}</td>
             <td><a class="text-white" href=""><i class="fa-solid fa-square-pen"></i></a> </td>
-            <td><a  data-bs-toggle="modal" data-bs-target="#delete" class="text-white" ><i class="fa-solid fa-trash"></i></a></td>
+            <td><a href="" data-bs-toggle="modal" data-bs-target="#delete" class="text-white" ><i class="fa-solid fa-trash"></i></a></td>
           </tr>
           <?php $slno++; ?>
 
@@ -106,14 +106,7 @@
 </div>
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-@foreach ($data as $item)
 
-
-@endforeach
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     
