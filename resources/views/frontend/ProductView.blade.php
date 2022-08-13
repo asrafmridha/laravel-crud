@@ -1,3 +1,5 @@
+ 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -54,13 +56,15 @@
             <td>{{$item->pdesc}}</td>
             <td>{{$item->price}}</td>
             <td>{{$item->status}}</td>
-            <td><a data-bs-toggle="modal" data-bs-target="#updateProduct" class="text-white" href=""><i class="fa-solid fa-square-pen"></i></a> </td>
-            <td><a href="" data-bs-toggle="modal" data-bs-target="#deleteProduct" class="text-white" ><i class="fa-solid fa-trash"></i></a></td>
+            <td><a data-bs-toggle="modal"  data-bs-target="#updateProductView" class="text-white" href=""><i class="fa-solid fa-square-pen"></i></a> </td>
+            <td><button data-bs-toggle="modal" data-bs-target="#deleteProduct{{$item->id}}" class="text-white" ><i class="fa-solid fa-trash"></i></button></td>
           </tr>
           <?php $slno++; ?>
 
+          
+
           <!-- Modal For Delete -->
-<div class="modal fade" id="deleteProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteProduct{{$item->id}}"  aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -81,88 +85,69 @@
 
 
 
-<!-- Modal For Update -->
-<div class="modal fade" id="updateProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
 
-        <form method="POST" action="{{Route("addproduct")}}" >
-  
-          @csrf
-        
-        <div class="form-group">
-        <label for="exampleInputEmail1">Product Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname">
-        
-        </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Product Category</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Category"  name="pcategory">
-          
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Product Description</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Description"  name="pdesc">
-            
-            </div>
-        <div class="form-group">
-        <label for="exampleInputPassword1">Price</label>
-        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" name="price">
-        </div>
-        
-        <div class="form-group">
-        <label for="exampleInputPassword1">Status</label>
-        <select class="form-control" name="status" id="">
-          <option value="#">---Select--</option>
-        <option value="1">Active</option>
-        <option value="2">Inactive</option>
-        
-        </select>
-        </div>
-        
-       
-        </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
-      </div>
     </div>
   </div>
 </div>
 
+  <!-- Modal For Update -->
+  <div class="modal fade" id="updateProductView{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         
 
+          <form  action="{{Route('updateProduct',$item->id)}}" method="POST" >
+    
+            @csrf
 
+            
+          
+          <div class="form-group">
+          <label for="exampleInputEmail1">Product Name</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname" value="{{$item->pname}}">
+          
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Product Category</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Category"  name="pcategory" value="{{$item->pcategory}}">
+            
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Product Description</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Description"  name="pdesc" value="{{$item->pdesc}}">
+              
+              </div>
+          <div class="form-group">
+          <label for="exampleInputPassword1">Price</label>
+          <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" name="price" value="{{$item->price}}">
+          </div>
+          
+          <div class="form-group">
+          <label for="exampleInputPassword1">Status</label>
+          <select class="form-control" name="status" id="" value="">
+            <option value="#">---Select--</option>
+          <option value="1">Active</option>
+          <option value="2">Inactive</option>
+          
+          </select>
+          </div>
+       
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button id="updateProduct" type="button" class="btn btn-primary">Update</button>
+        </div>
+      </form>
+    </div>
+     
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
+</div>
+</div>
 
 
           @endforeach
@@ -171,14 +156,23 @@
         </tbody>
       </table>
 
-    </div>
-    </div>
-</div>
+    
 
 
 
+      
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <script>
+
+         $("#updateProduct").click(function(){
+            $("#updateProductView").modal('hide');
+        });
+      </script>
+
     
 </body>
 </html>
