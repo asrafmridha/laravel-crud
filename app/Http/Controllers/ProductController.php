@@ -31,4 +31,12 @@ class ProductController extends Controller
       $data=Product::all();
       return view("frontend.ProductView",compact('data'));
    }
+
+   function deleteProduct($id){
+
+      $data=Product::find($id);
+      $data->delete();
+      return redirect()->route("ProductView")->with("message","Delete Successfully");
+
+   }
 }
