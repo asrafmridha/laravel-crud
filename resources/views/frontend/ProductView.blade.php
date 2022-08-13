@@ -1,5 +1,3 @@
- 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,12 +54,13 @@
             <td>{{$item->pdesc}}</td>
             <td>{{$item->price}}</td>
             <td>{{$item->status}}</td>
-            <td><a data-bs-toggle="modal"  data-bs-target="#updateProductView" class="text-white" href=""><i class="fa-solid fa-square-pen"></i></a> </td>
+            <td><button data-bs-toggle="modal"  data-bs-target="#updateProductView{{$item->id}}" class="text-white" href=""><i class="fa-solid fa-square-pen"></i></button> </td> 
+         
             <td><button data-bs-toggle="modal" data-bs-target="#deleteProduct{{$item->id}}" class="text-white" ><i class="fa-solid fa-trash"></i></button></td>
           </tr>
           <?php $slno++; ?>
 
-          
+
 
           <!-- Modal For Delete -->
 <div class="modal fade" id="deleteProduct{{$item->id}}"  aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -91,7 +90,7 @@
 </div>
 
   <!-- Modal For Update -->
-  <div class="modal fade" id="updateProductView{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateProductView{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -99,55 +98,60 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
+
+          <form method="POST" action="{{Route("updateProduct",$item->id)}}" >
+   
+        @csrf
+
+        
+      
+      <div class="form-group">
+      <label for="exampleInputEmail1">Product Name</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname" value="{{$item->pname}}">
+       
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Product Category</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Category"  name="pcategory" value="{{$item->pcategory}}">
+        
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Product Description</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Description"  name="pdesc" value="{{$item->pdesc}}">
+          
+          </div>
+      <div class="form-group">
+      <label for="exampleInputPassword1">Price</label>
+      <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" name="price" value="{{$item->price}}">
+      </div>
+      
+      <div class="form-group">
+      <label for="exampleInputPassword1">Status</label>
+      <select class="form-control" name="status" id="" value="">
+        <option value="#">---Select--</option>
+      <option value="1">Active</option>
+      <option value="2">Inactive</option>
+      
+      </select>
+      </div>
+   
+    <div class="modal-footer">
+
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+     
+      <button  type="button" class="btn btn-primary">Update</button>
+    </div>
+  </form>
+  
          
 
-          <form  action="{{Route('updateProduct',$item->id)}}" method="POST" >
-    
-            @csrf
-
-            
           
-          <div class="form-group">
-          <label for="exampleInputEmail1">Product Name</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Name"  name="pname" value="{{$item->pname}}">
-          
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Product Category</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Category"  name="pcategory" value="{{$item->pcategory}}">
-            
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Product Description</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Product Description"  name="pdesc" value="{{$item->pdesc}}">
-              
-              </div>
-          <div class="form-group">
-          <label for="exampleInputPassword1">Price</label>
-          <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter Price" name="price" value="{{$item->price}}">
-          </div>
-          
-          <div class="form-group">
-          <label for="exampleInputPassword1">Status</label>
-          <select class="form-control" name="status" id="" value="">
-            <option value="#">---Select--</option>
-          <option value="1">Active</option>
-          <option value="2">Inactive</option>
-          
-          </select>
-          </div>
-       
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button id="updateProduct" type="button" class="btn btn-primary">Update</button>
-        </div>
-      </form>
     </div>
      
 
   </div>
 </div>
-</div>
+</div> 
 
 
           @endforeach

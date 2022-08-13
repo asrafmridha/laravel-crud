@@ -33,4 +33,9 @@ Route::post("addproduct",[ProductController::class,"addproduct"])->name("addprod
 
  Route::get("deleteProduct/{id}",[ProductController::class,"deleteProduct"])->name('deleteProduct');
 
+//  Route::get("updateProductView/{id}",[ProductController::class,"updateProductView"])->name("updateProductView");
+
+
+Route::post("updateProduct/{id}",[ProductController::class,"updateProduct"])->name("updateProduct");
+
 

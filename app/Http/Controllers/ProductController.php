@@ -39,4 +39,26 @@ class ProductController extends Controller
       return redirect()->route("ProductView")->with("message","Delete Successfully");
 
    }
+
+   function updateProductView($id){
+
+      $item=Product::find($id);
+      return view("frontend.updateProduct",compact('item'));
+
+
+   }
+   function updateProduct(Request $request, $id){
+
+       
+      $data=Product::find($id);
+      $data->pname=$request->pname;
+      $data->pcategory=$request->pcategory;
+      $data->pdesc=$request->pdesc;
+      $data->price=$request->price;
+      // $data->status=$request->status;
+      $data->update();
+      return redirect()->route("ProductView")->with("message","Update Product Successfully");
+
+
+   }
 }
