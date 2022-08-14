@@ -57,7 +57,7 @@ class ProductController extends Controller
       $data->price=$request->price;
       // $data->status=$request->status;
       $data->update();
-      return redirect()->route("ProductView")->with("message","Update Product Successfully");
+      return redirect()->route("ProductView")->with("message","Update Product Successfully"); 
 
 
    }
