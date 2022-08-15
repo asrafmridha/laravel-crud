@@ -61,4 +61,28 @@ class ProductController extends Controller
 
 
    }
+
+   function updatestatus($id){
+
+      $data=Product::find($id);
+
+      if($data->status==1){
+         $data->status=2;
+         
+      }
+      else{
+         $data->status=1;
+         
+      }
+      $data->update();
+      if($data->status==1){
+
+         return redirect()->route("ProductView")->with("message","active");
+      }
+      else{
+         return redirect()->route("ProductView")->with("message","Inactive");
+      }
+     
+
+   }
 }
