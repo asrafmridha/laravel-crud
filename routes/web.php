@@ -35,7 +35,13 @@ Route::post("addproduct",[ProductController::class,"addproduct"])->name("addprod
 
 //  Route::get("updateProductView/{id}",[ProductController::class,"updateProductView"])->name("updateProductView");
 
-
+//  Route for update Product 
 Route::post("updateProduct/{id}",[ProductController::class,"updateProduct"])->name("updateProduct");
+
+// Route for status
+
+Route::get('status/{id}',[ProductController::class,'updatestatus'])->name('updatestatus');
+
+
 
 
