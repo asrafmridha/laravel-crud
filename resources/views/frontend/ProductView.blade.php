@@ -53,7 +53,18 @@
             <td>{{$item->pcategory}}</td>
             <td>{{$item->pdesc}}</td>
             <td>{{$item->price}}</td>
-            <td>{{$item->status}}</td>
+            <td>
+              @if ($item->status==1)
+                <a href="" class="btn btn-info btn-sm"><i class="fa-solid fa-check"></i></a>
+
+                  @else
+                  <a href="" class="btn btn-danger btn-sm"><i class="fa-solid fa-check"></i></a>
+                 
+              @endif
+
+
+
+            </td>
             <td><button data-bs-toggle="modal"  data-bs-target="#updateProductView{{$item->id}}" class="text-white" href=""><i class="fa-solid fa-square-pen"></i></button> </td> 
          
             <td><button data-bs-toggle="modal" data-bs-target="#deleteProduct{{$item->id}}" class="text-white" ><i class="fa-solid fa-trash"></i></button></td>
